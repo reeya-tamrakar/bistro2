@@ -1,0 +1,14 @@
+# .htaccess is used for stripping off .php extension from the URL
+
+# for php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^\.]+)$ $1.php [NC,L]
+RewriteRule ^([^\.]+)$ $1.html [NC,L]
+
+
+# for php sub-directory
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{DOCUMENT_ROOT}/sub/$1.php -f
+RewriteRule ^(.+?)/?$ $1.php [L]
+RewriteRule ^$1/([0-9a-zA-Z_-]+) $1.php?name=$2 [NC,L]

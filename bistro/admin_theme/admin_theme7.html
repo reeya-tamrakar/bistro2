@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Payments - Admin Panel</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="admin_theme.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Actions</div>
+      <div class="list-group list-group-flush">
+        <a href="admin_theme.html" class="list-group-item list-group-item-action bg-light selected"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="admin_theme1.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Home Page</a>
+        <a href="admin_theme3.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-utensils"></i> Cuisines</a>
+        <a href="admin_theme4.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-cog"></i> Cuisine Categories</a>
+        <a href="admin_theme5.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-friends"></i> Customers</a>
+        <a href="admin_theme6.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <a href="admin_theme7.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-money-bill"></i> Payments</a>
+        <a href="admin_theme8.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i> Users</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-toggle-off"></i> Log Out</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+        <a class="navbar-brand pl-1" href="admin_theme.html ">Admin Area</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Top Menu -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-tie"></i> Admin Name
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="admin_theme3.html"><i class="fas fa-utensils"></i> Cuisines</a>
+                <a class="dropdown-item" href="admin_theme5.html"><i class="fas fa-user-friends"></i> Customers</a>
+                <a class="dropdown-item" href="admin_theme4.html"><i class="fas fa-cog"></i> Cuisine Categories</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fas fa-toggle-off"></i> Log Out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid"><!-- Content -->
+        <h1 class="mt-4"><i class="fas fa-money-bill"></i> Payments</h1>
+        <br>
+        <p>View online payments.</p>
+        <table class="table table-hover table-responsive table-striped">
+          <thead>
+            <tr>
+              <th scope="col">Order Id</th>
+              <th scope="col">Customer Email</th>
+              <th scope="col">Invoice No</th>
+              <th scope="col">Cuisine Name</th>
+              <th scope="col">Cuisine Qty</th>
+              <th scope="col">Cuisine Type/Size</th>
+              <th scope="col">Order  Date/Time</th>
+              <th scope="col">Amount</th>
+              <th scope="col">Mode of payment</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <th scope="row">1</th>
+              <td>rambhajan@gmail.com</td>
+              <td>654651</td>
+              <td>Momo</td>
+              <td>2 plates</td>
+              <td>Buff</td>
+              <td>19/10/18 18:41</td>
+              <td>250</td>
+              <td>esewa</td>
+            </tr>
+            <tr>
+              <th scope="row">2</th>
+              <td>Jacob</td>
+              <td>Thornton</td>
+              <td>@fat</td>
+            </tr>
+            <tr>
+              <th scope="row">3</th>
+              <td colspan="2">Larry the Bird</td>
+              <td>@twitter</td>
+            </tr>
+          </tbody>
+        </table>
+      </div><!-- Content wrapper -->
+    </div>
+      <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+</body>
+</html>
