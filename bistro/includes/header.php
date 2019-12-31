@@ -151,7 +151,7 @@ if(isset($_POST['login'])){
 
 
 
-<!-- Scripts -->
+<!-- Scripts -->  
   <script src="/bistro/js/jquery.js"></script><!-- jQuery JS -->
 	<script src="/bistro/js/bootstrap.min.js"></script><!-- Bootstrap JS -->
 

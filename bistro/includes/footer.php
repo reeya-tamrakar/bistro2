@@ -58,11 +58,11 @@
 				<hr>
 				<h5>Keep in touch</h5>
 				<div class="btn-group d-flex justify-content-center" role="group"><!-- Icon group (Learn more at bootstrap documentation about this section) -->
-				  <button type="button" class="btn btn-secondary ml-2"><i class="fab fa-facebook-f"></i></button>
-				  <button type="button" class="btn btn-secondary ml-2"><i class="fab fa-instagram"></i></button>
-				  <button type="button" class="btn btn-secondary ml-2"><i class="fab fa-twitter"></i></button>
-				  <button type="button" class="btn btn-secondary ml-2"><i class="fab fa-whatsapp"></i></button>
-				  <button type="button" class="btn btn-secondary ml-2"><i class="fab fa-youtube"></i></button>
+				  <button type="button" class="btn btn-secondary ml-2"><i class="fi-xnsuxl-facebook"></i></button>
+				  <button type="button" class="btn btn-secondary ml-2"><i class="fi-xnsuxl-instagram"></i></button>
+				  <button type="button" class="btn btn-secondary ml-2"><i class="fi-xnsuxl-twitter"></i></button>
+				  <button type="button" class="btn btn-secondary ml-2"><i class="fi-xnsuxl-whatsapp"></i></button>
+				  <button type="button" class="btn btn-secondary ml-2"><i class="fi-xwsuxl-youtube"></i></button>
 				</div>
 		</div>
 	</div>

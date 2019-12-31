@@ -1,6 +1,6 @@
 <?php 
 	session_start();
-	include("$_SERVER[DOCUMENT_ROOT]/bistro/includes/db.php");
+	include("$_SERVER[DOCUMENT_ROOT]/bistro2/bistro/includes/db.php");
 	include("includes/headsidebar.php");
 	if(!isset($_SESSION['user'])){
         
