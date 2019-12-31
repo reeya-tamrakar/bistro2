@@ -166,7 +166,7 @@ if(isset($_POST['login'])){
   <div class="collapse navbar-collapse" id="nav"><!-- Navbar, the collapsible part -->
     <ul class="navbar-nav ml-auto"><!-- Navbar start -->
       <li class="nav-item <?php if ($first_part=="index") {echo "active"; } else  {echo "";} ?> mr-4"><!-- php for making the class active -->
-        <a class="nav-link" href="/bistro/">Home</a>
+        <a class="nav-link" href="/bistro2/bistro/">Home</a>
       </li>
       <li class="dropdown menu-large nav-item"> <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown">Menu </a>
                     <ul class="dropdown-menu megamenu"><!-- Mega Menu -->
