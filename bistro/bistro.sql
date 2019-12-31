@@ -3,9 +3,9 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Nov 01, 2019 at 04:53 AM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 7.2.12
+-- Generation Time: Dec 31, 2019 at 11:40 AM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -36,16 +36,14 @@ CREATE TABLE `admins` (
   `phone` text NOT NULL,
   `location` varchar(255) NOT NULL,
   `description` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `admins`
 --
 
 INSERT INTO `admins` (`username`, `password`, `id`, `email`, `phone`, `location`, `description`) VALUES
-('ash_admin', 'dbc0f3a8cc39eda28a9f8ef326371f56', 4, 'praash47@gmail.com', '9813057360', 'Haugal, Lalitpur', 'I am Aashish. I love programming. I love to discover and be inserted into new activities every single day!'),
-('rey', 'fe8ad66ab4879912d6a8eff0801bcb5b', 6, 'reeya6792@gmail.com', '9818232669', 'Haugal, Lalitpur', 'Rey.'),
-('menu', '4218ffe9fb35254806718d6cb3984424', 7, 'indirastha98@gmail.com', '0420540822', 'Australia', 'She is the most lovely!');
+('reeya1', '040ac25923ee3bcb2fcc276476e5b5b3', 0, 'reeya6792@gmail.com', '9818232669', 'Lalitpur', 'think positive,think high!');
 
 -- --------------------------------------------------------
 
@@ -58,7 +56,7 @@ CREATE TABLE `cuisinecats` (
   `name` varchar(255) NOT NULL,
   `description` varchar(512) CHARACTER SET utf8 COLLATE utf8_unicode_ci NOT NULL,
   `img` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cuisinecats`
@@ -87,7 +85,7 @@ CREATE TABLE `cuisines` (
   `img3` varchar(255) NOT NULL,
   `warmth` varchar(64) NOT NULL,
   `type` varchar(384) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `cuisines`
@@ -110,7 +108,7 @@ CREATE TABLE `customers` (
   `phone` varchar(255) NOT NULL,
   `location` varchar(255) NOT NULL,
   `password` varchar(255) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 COMMENT='Database for storing of customer details.';
+) ENGINE=MyISAM DEFAULT CHARSET=latin1 COMMENT='Database for storing of customer details.';
 
 --
 -- Dumping data for table `customers`
@@ -118,8 +116,9 @@ CREATE TABLE `customers` (
 
 INSERT INTO `customers` (`id`, `name`, `email`, `phone`, `location`, `password`) VALUES
 (21, 'rey', 'reeya6792@gmail.com', '9818232669', 'haugal', '97065a3f6bb3708842810b42214223d7'),
-(26, 'menu', 'indirastha98@gmail.com', '0420540822', 'Australia', 'ff620737c282c43f0a1c256cf95b22da'),
-(29, 'ash_customer', 'praash47@gmail.com', '9813057360', 'Haugal, Lalitpur', 'dbc0f3a8cc39eda28a9f8ef326371f56');
+(26, 'menu', 'menu@gmail.com', '1234567890', 'Australia', 'ff620737c282c43f0a1c256cf95b22da'),
+(29, 'ash_customer', 'praash47@gmail.com', '9813057360', 'Haugal, Lalitpur', 'dbc0f3a8cc39eda28a9f8ef326371f56'),
+(0, 'ads', 'adsh@adsh.com', '9822342121', 'nepal', 'e5a8d50ed67e73637b7ef2f0645720eb');
 
 -- --------------------------------------------------------
 
@@ -131,7 +130,7 @@ CREATE TABLE `slides` (
   `id` int(11) NOT NULL,
   `name` text NOT NULL,
   `img` text NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `slides`
@@ -152,75 +151,15 @@ INSERT INTO `slides` (`id`, `name`, `img`) VALUES
 
 CREATE TABLE `subscriptions` (
   `email` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Indexes for dumped tables
+-- Dumping data for table `subscriptions`
 --
 
---
--- Indexes for table `admins`
---
-ALTER TABLE `admins`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `cuisinecats`
---
-ALTER TABLE `cuisinecats`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `cuisines`
---
-ALTER TABLE `cuisines`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `customers`
---
-ALTER TABLE `customers`
-  ADD PRIMARY KEY (`id`);
-
---
--- Indexes for table `slides`
---
-ALTER TABLE `slides`
-  ADD PRIMARY KEY (`id`);
-
---
--- AUTO_INCREMENT for dumped tables
---
-
---
--- AUTO_INCREMENT for table `admins`
---
-ALTER TABLE `admins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-
---
--- AUTO_INCREMENT for table `cuisinecats`
---
-ALTER TABLE `cuisinecats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `cuisines`
---
-ALTER TABLE `cuisines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
-
---
--- AUTO_INCREMENT for table `customers`
---
-ALTER TABLE `customers`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT for table `slides`
---
-ALTER TABLE `slides`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+INSERT INTO `subscriptions` (`email`) VALUES
+('laxmishilpakar@gmail.com'),
+('nabinm504@gmail.com');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
