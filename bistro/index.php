@@ -218,10 +218,10 @@
 								<p>prev. Rs. 140</p>
 								<div class="row">
 									<div class="col-md-6">
-										<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Details</a> 
+										<a class="btn btn-primary btn-product">Details</a> 
 									</div>
 									<div class="col-md-6">
-										<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+										<a href="#" class="btn btn-success btn-product">Add to Cart</a>
 									</div>
 								</div>
 							</div>
@@ -250,10 +250,10 @@
 								<p>prev. Rs. 140</p>
 								<div class="row">
 									<div class="col-md-6">
-										<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Details</a> 
+										<a class="btn btn-primary btn-product">Details</a> 
 									</div>
 									<div class="col-md-6">
-										<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+										<a href="#" class="btn btn-success btn-product">Add to Cart</a>
 									</div>
 								</div>
 							</div>
@@ -282,10 +282,10 @@
 								<p>prev. Rs. 140</p>
 								<div class="row">
 									<div class="col-md-6">
-										<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Details</a> 
+										<a class="btn btn-primary btn-product">Details</a> 
 									</div>
 									<div class="col-md-6">
-										<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+										<a href="#" class="btn btn-success btn-product">Add to Cart</a>
 									</div>
 								</div>
 							</div>
@@ -314,10 +314,10 @@
 								<p>prev. Rs. 140</p>
 								<div class="row">
 									<div class="col-md-6">
-										<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Details</a> 
+										<a class="btn btn-primary btn-product">Details</a> 
 									</div>
 									<div class="col-md-6">
-										<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+										<a href="#" class="btn btn-success btn-product">Add to Cart</a>
 									</div>
 								</div>
 							</div>
@@ -346,10 +346,10 @@
 								<p>prev. Rs. 140</p>
 								<div class="row">
 									<div class="col-md-6">
-										<a class="btn btn-primary btn-product"><span class="glyphicon glyphicon-thumbs-up"></span> Details</a> 
+										<a class="btn btn-primary btn-product">Details</a> 
 									</div>
 									<div class="col-md-6">
-										<a href="#" class="btn btn-success btn-product"><span class="glyphicon glyphicon-shopping-cart"></span> Add to Cart</a>
+										<a href="#" class="btn btn-success btn-product">Add to Cart</a>
 									</div>
 								</div>
 							</div>
