@@ -189,7 +189,7 @@ if(isset($_POST['login'])){
                             echo '<li><a href="#">' . $cuirow['cuiname'];
                             if(in_array($cuirow['cuiname'], $name_list)){
                               $index = array_search($cuirow['cuiname'], $name_list);
-                              echo '<button type="submit" class="btn btn-primary btn-sm ml-2 float-right" onkeypress="alert('. "Ordered Successfully." . ')">Order!</button> <strong class="float-right">Rs. ' . $price_list[$index] . '</strong> </a>';
+                              echo '<button type="submit" class="btn btn-primary btn-sm ml-2 float-right" onclick="alert('. "Ordered Successfully." . ')">Order!</button> <strong class="float-right">Rs. ' . $price_list[$index] . '</strong> </a>';
                             }
                             echo '</li>'; 
                           }
