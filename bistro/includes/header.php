@@ -1,5 +1,9 @@
 <?php 
 session_start();
+/* php price list array */
+$name_list = array('Momo','chowmein','Thakali Khana');
+$price_list = array(150,160,320);
+
 /* php to extract page name*/
 $directoryURI = $_SERVER['REQUEST_URI'];
 $path = parse_url($directoryURI, PHP_URL_PATH);
@@ -172,88 +176,26 @@ if(isset($_POST['login'])){
                     <ul class="dropdown-menu megamenu"><!-- Mega Menu -->
                     	<h1 class="text-center">Mega Menu</h1>
                         <div class="row">
-                            <li class="col-md-3 dropdown-item"><!-- A column of Mega Menu -->
+                          <?php 
+                          $cat_select = "SELECT DISTINCT catname from menucuis";
+                          $cat = mysqli_query($con,$cat_select);
+                        while($catrow = mysqli_fetch_assoc($cat)){
+                          echo '<li class="col-md-3 dropdown-item"><!-- A column of Mega Menu -->
                                 <ul><!-- List of items of the megamenu -->
-                                    <li class="dropdown-header">Cuisine Cat 1</li>
-                                    <li><a href="#">Cold Drink</a>
-                                    </li>
-                                    <li class="disabled"><a href="#">Beer</a>
-                                    </li>
-                                    <li><a href="#">Juice</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Cuisine Cat 2</li>
-                                    <li><a href="#">Meat</a>
-                                    </li>
-                                    <li><a href="#">Sausage</a>
-                                    </li>
-                                    <li><a href="#">Choupsey</a>
-                                    </li>
-                                    <li><a href="#">Pan Parag</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="col-md-3 dropdown-item">
-                                <ul>
-                                    <li class="dropdown-header">Cuisine Cat 3</li>
-                                    <li><a href="#">Chocolates</a>
-                                    </li>
-                                    <li><a href="#">Chow-chow</a>
-                                    </li>
-                                    <li><a href="#">Biscuit</a>
-                                    </li>
-                                    <li><a href="#">Dalmoth</a>
-                                    </li>
-                                    <li><a href="#">Chatpat</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Special Cuisine</li>
-                                    <li><a href="#">Panipuri</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="col-md-3 dropdown-item">
-                                <ul>
-                                    <li class="dropdown-header">Cuisine Cat 4</li>
-                                    <li><a href="#">Tharlak</a>
-                                    </li>
-                                    <li><a href="#">Thenduk</a>
-                                    </li>
-                                    <li><a href="#">Thukpa</a>
-                                    </li>
-                                    <li class="divider"></li>
-                                    <li class="dropdown-header">Cuisine Cat 5</li>
-                                    <li><a href="#">Momo</a>
-                                    </li>
-                                    <li><a href="#">Chowmein</a>
-                                    </li>
-                                    <li><a href="#">Burger</a>
-                                    </li>
-                                </ul>
-                            </li>
-                            <li class="col-md-3 dropdown-item">
-                                <ul>
-                                    <li class="dropdown-header"></li>
-                                    <li><a href="#">Learn Bootstrap</a>
-                                    </li>
-                                    <li><a href="#">Buttons</a>
-                                    </li>
-                                    <li><a href="#">Text</a>
-                                    </li>
-                                    <li><a href="#">Non-nav links</a>
-                                    </li>
-                                    <li><a href="#">Component alignment</a>
-                                    </li>
-                                    <li><a href="#">Fixed to top</a>
-                                    </li>
-                                    <li><a href="#">Fixed to bottom</a>
-                                    </li>
-                                    <li><a href="#">Static top</a>
-                                    </li>
-                                    <li><a href="#">Inverted navbar</a>
-                                    </li>
-                                </ul>
-                            </li>
+                                    <li class="dropdown-header">' . $catrow['catname'] . '</li>';
+                          $cui_select = "SELECT * FROM menucuis WHERE catname='" . $catrow['catname'] ."'";
+                          $cui = mysqli_query($con,$cui_select);
+                          while($cuirow = mysqli_fetch_assoc($cui)){
+                            echo '<li><a href="#">' . $cuirow['cuiname'];
+                            if(in_array($cuirow['cuiname'], $name_list)){
+                              $index = array_search($cuirow['cuiname'], $name_list);
+                              echo '<button type="submit" class="btn btn-primary btn-sm ml-2 float-right">Order!</button> <strong class="float-right">Rs. ' . $price_list[$index] . '</strong> </a>';
+                            }
+                            echo '</li>'; 
+                          }
+                          echo '</ul></li>';
+                        }
+                           ?>
                         </div>
                     </ul>
                 </li>
@@ -266,7 +208,7 @@ if(isset($_POST['login'])){
       <li class="nav-item mr-4 hidden-md">
       	<div class="input-group mb-2">
 		  <input type="text" class="form-control" placeholder="What's on tastebud?">
-		  <div class="input-group-append"><button type="button" class="btn btn-success"><i class="fi-xnsuxl-search"></i></button></span></div>
+		  <div class="input-group-append"><button type="button" class="btn btn-success"><i class="fa fa-search"></i></button></span></div>
 		</div>
       </li>
        </a>

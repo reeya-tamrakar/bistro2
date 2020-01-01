@@ -50,8 +50,11 @@ $catDescription="";
    $select_res = mysqli_query($con,$select);
    $select_resr = mysqli_fetch_assoc($select_res);
    $fileName = $select_resr['img'];
+    $delete1 = "DELETE from menucats WHERE id='$deleteId'";
+    $delete2 = "DELETE from menucuis WHERE catid='$deleteId'";
+    $delete3 = "DELETE from cuisines WHERE cat_id='$deleteId'";
    $delete = "DELETE from cuisinecats WHERE id='$deleteId'";
-   if(mysqli_query($con,$delete)){
+   if(mysqli_query($con,$delete) && mysqli_query($con,$delete1) && mysqli_query($con,$delete2) && mysqli_query($con,$delete3)){
      $path = "../uploads/cuisinecats/" . $fileName;
      unlink($path);
      echo "<script>alert('Successfully deleted.')</script>";
@@ -181,7 +184,8 @@ if(isset($_POST['menuSubmit'])){
 if(isset($_POST['deleteMenuCat'])){
   $deleteId = $_POST['deleteId'];
   $delete = "DELETE from menucats WHERE id='$deleteId'";
- if(mysqli_query($con,$delete)){
+  $delete1 = "DELETE from menucuis WHERE catid='$deleteId'";
+ if(mysqli_query($con,$delete) && mysqli_query($con,$delete1)){
    echo "<script>alert('Successfully deleted.')</script>";
  }
  else{
@@ -266,7 +270,7 @@ if(isset($_POST['deleteMenuCat'])){
             </div>  
           </div><!-- Tab2 content wrapper -->
           <div id="menu2" class="container tab-pane fade"><br>
-            <p>Insert the cuisine category you want to insert in menu. Categories already chosen may be inserted in menu. </p><a href="admin_theme3.html#menu2">Insert Cuisine Item</a><br><br>
+            <p>Insert the cuisine category you want to insert in menu. Categories already chosen may be inserted in menu. </p><a href="/bistro2/bistro/admin/index.php?action=cuisines#menu2">Insert Cuisine Item</a><br><br>
             <form method="post">
               <div class="form-group row">
                 <label for="itemName" class="col-md-1 col-form-label">Category:</label>
@@ -288,7 +292,7 @@ if(isset($_POST['deleteMenuCat'])){
             </form>
           </div><!-- Tab3 content wrapper -->
             <div id="menu3" class="container tab-pane fade"><br>
-              <p>Cuisine categories list inside Menu. </p><a href="admin_theme3.html#menu3">Delete Category Items</a><br><br>
+              <p>Cuisine categories list inside Menu. </p><a href="/bistro2/bistro/admin/index.php?action=cuisines#menu3">Delete Category Items</a><br><br>
               <div class="card-deck">
                 <?php 
                     $tbl_select = "SELECT * from menucats";

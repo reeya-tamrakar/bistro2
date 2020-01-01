@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2020 at 05:11 AM
+-- Generation Time: Jan 01, 2020 at 08:42 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -64,9 +64,10 @@ CREATE TABLE `cuisinecats` (
 --
 
 INSERT INTO `cuisinecats` (`id`, `name`, `description`, `img`) VALUES
-(3, 'Nepalese', 'Nepalese', '5dba93330e9fa5.47902178.jpeg'),
-(4, 'Indian', 'Indian food!', '5dbb065ed66b17.66043172.jpeg'),
-(5, 'Chinese', 'Chinese Food', '5dbb0cf44d5fc5.38858623.jpeg');
+(6, 'Nepalese', 'A typical nepalese dish', '5e0c3d77b5c717.42634946.jpeg'),
+(9, 'Indian', 'indian food', '5e0c41d254e9a3.39357729.jpeg'),
+(8, 'Chinese', 'china food', '5e0c3df73e9539.44334448.jpeg'),
+(10, 'Continental', 'continental foods', '5e0c46eb885b65.21271822.jpeg');
 
 -- --------------------------------------------------------
 
@@ -93,11 +94,13 @@ CREATE TABLE `cuisines` (
 --
 
 INSERT INTO `cuisines` (`id`, `name`, `category`, `cat_id`, `type_of_qty`, `description`, `img1`, `img2`, `img3`, `warmth`, `type`) VALUES
-(2, 'Momo', 'Nepalese', 3, 'plate', 'Momo is in the taste of every nepalese.', '5dbb0605bfc688.95352853.jpg', '5dbb0605bfc6f7.63955183.jpeg', '5dbb0605bfc714.62290128.jpeg', 'not applicable', 'sour,veg,non-veg,spicy'),
-(3, 'Idli', 'Indian', 4, 'plate', 'Eaten by Aiyers.', '5dbb072b82bb17.65611063.jpg', '5dbb072b82bc52.02107508.jpeg', '5dbb072b82bcc8.19867735.jpeg', 'hot', 'sweet,n/a'),
-(4, 'Chatpate', 'Nepalese', 3, 'plate', 'Chatpate is spicy authentic Nepali dish.', '5e0c12f88e20e9.67645863.jpeg', '5e0c12f88e21a7.84817501.jpeg', '5e0c12f88e21e0.68609983.jpeg', 'not applicable', 'sour,spicy'),
-(5, 'chinese food', 'Chinese', 5, 'bowl', 'a chinese food', '5e0c1399aa4b45.02400589.jpeg', '5e0c1399aa4c29.55557793.jpeg', '5e0c1399aa4c54.48292002.jpeg', 'hot', 'sweet,spicy'),
-(6, 'chinese food 2', 'Chinese', 5, 'bowl', 'chinese food 2', '5e0c152a51bff4.09382354.jpeg', '5e0c152a51c0c8.11736650.jpeg', '5e0c152a51c104.24069880.jpeg', 'hot', 'veg,non-veg');
+(16, 'Mediterrinean Beans', 'Continental', 10, 'n/a', 'Tasty authentic mediterrenan beans', '5e0c4757603437.65145948.jpeg', '5e0c4757603538.23391650.jpeg', '5e0c4757603550.93214886.jpeg', 'not applicable', 'n/a'),
+(15, 'Idli', 'Indian', 9, 'piece', 'idli', '5e0c468082b9a4.87967659.jpeg', '5e0c468082ba29.67657381.jpeg', '5e0c468082baf9.14730084.jpeg', 'not applicable', 'non-egg,sweet'),
+(14, 'chuankchou', 'Chinese', 8, 'stick', 'chuankchou, simply amazing', '5e0c42aab912e1.56772538.jpeg', '5e0c42aab913a6.34329313.jpeg', '5e0c42aab913d4.69421040.jpeg', 'hot', 'veg,sweet'),
+(12, 'chowmein', 'Chinese', 8, 'plate', 'chinese chowmein', '5e0c4216977c44.05840490.jpeg', '5e0c4216977cd5.05408022.jpeg', '5e0c4216977ce6.34209442.jpeg', 'not applicable', 'veg,non-veg,non-egg'),
+(8, 'Momo', 'Nepalese', 6, 'plate', 'nepali', '5e0c3e97d292c0.72299625.jpeg', '5e0c3e97d29333.28850225.jpeg', '5e0c3e97d29352.70134279.jpeg', 'not applicable', 'veg,non-veg'),
+(9, 'Thakali Khana', 'Nepalese', 6, 'plate', 'dal bhat', '5e0c3f3587e6b8.87816678.jpeg', '5e0c3f3587e730.90931028.jpeg', '5e0c3f3587e756.00700436.jpeg', 'not applicable', 'veg,non-veg'),
+(13, 'Dal Dhokli', 'Indian', 9, 'bowl', 'dal dhokli', '5e0c42549bd473.19559293.jpeg', '5e0c42549bd505.23617958.jpeg', '5e0c42549bd525.56742491.jpeg', 'not applicable', 'veg,non-veg,non-egg');
 
 -- --------------------------------------------------------
 
@@ -140,9 +143,10 @@ CREATE TABLE `menucats` (
 --
 
 INSERT INTO `menucats` (`id`, `catname`) VALUES
-(3, 'Nepalese'),
-(5, 'Chinese'),
-(4, 'Indian');
+(6, 'Nepalese'),
+(8, 'Chinese'),
+(9, 'Indian'),
+(10, 'Continental');
 
 -- --------------------------------------------------------
 
@@ -156,6 +160,18 @@ CREATE TABLE `menucuis` (
   `cuiname` varchar(255) NOT NULL,
   `cuiid` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `menucuis`
+--
+
+INSERT INTO `menucuis` (`catname`, `catid`, `cuiname`, `cuiid`) VALUES
+('Nepalese', 6, 'Momo', 2),
+('Chinese', 8, 'chowmein', 12),
+('Indian', 9, 'Dal Dhokli', 13),
+('Nepalese', 6, 'Thakali Khana', 9),
+('Indian', 9, 'Idli', 15),
+('Continental', 10, 'Mediterrinean Beans', 16);
 
 -- --------------------------------------------------------
 
@@ -246,13 +262,13 @@ ALTER TABLE `admins`
 -- AUTO_INCREMENT for table `cuisinecats`
 --
 ALTER TABLE `cuisinecats`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `cuisines`
 --
 ALTER TABLE `cuisines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT for table `customers`

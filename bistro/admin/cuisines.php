@@ -96,7 +96,8 @@ if(isset($_POST['cuiDelete'])){
   $oldDest2 = "../uploads/cuisines/" . $tbl['img2']; 
   $oldDest3 = "../uploads/cuisines/" . $tbl['img3']; 
   $cuiDelete = "DELETE FROM cuisines WHERE id='$deleteId'";
-  if(mysqli_query($con,$cuiDelete)){
+  $delete = "DELETE from menucuis WHERE cuiid='$deleteId'";
+  if(mysqli_query($con,$cuiDelete) && mysqli_query($con,$delete)){
     unlink($oldDest);
     unlink($oldDest2);
     unlink($oldDest3);
@@ -110,14 +111,40 @@ if(isset($_POST['cuiEdit'])){
   $editId = $_POST['id'];
   echo '';
 }
-if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['cuiMenuName'])){
-  $selectValue = $_POST['cuiMenuName'];
-  echo "You selected $selectValue, go and select an item now.";
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !isset($_POST['cuiCatMenuName'])) {
+  if(!empty($_POST['cuiMenuName'])){
+    $selectValue = $_POST['cuiMenuName'];
+    echo "You selected $selectValue, go and select an item now.";
+  }
 }
-if(isset($_POST['cuiCatMenuName'])){
-
+if(isset($_POST['cuiCatMenuName']) && isset($_POST['cuiMenuSubmit'])){
+  $catName = $_POST['cuiMenuName'];
+  $cuiName = $_POST['cuiCatMenuName'];
+  $tbl_select = "SELECT * FROM cuisines WHERE name='$cuiName'";
+  $tbl = mysqli_fetch_assoc(mysqli_query($con,$tbl_select));
+  $cuiId = $tbl['id'];
+  $tbl_select = "SELECT * FROM cuisinecats WHERE name='$catName'";
+  $tbl = mysqli_fetch_assoc(mysqli_query($con,$tbl_select));
+  $catId = $tbl['id'];
+  $cui_insert = "INSERT INTO menucuis(catname,catid,cuiname,cuiid) VALUES('$catName','$catId','$cuiName','$cuiId')";
+  if(mysqli_query($con,$cui_insert)){
+    echo "<script>alert('Inserted Successfully!');</script>";
+  }
+  else{
+    echo "<script>alert('Database Upload Error!');</script>";
+  }
 }
 
+if(isset($_POST['deleteCuiMenu'])){
+  $deleteId = $_POST['deleteId'];
+  $delete = "DELETE from menucuis WHERE cuiid='$deleteId'";
+ if(mysqli_query($con,$delete)){
+   echo "<script>alert('Successfully deleted.')</script>";
+ }
+ else{
+   echo "error";
+ }
+}
  ?>
  <script type="text/javascript"> 
   function getCuisines(){
@@ -315,7 +342,7 @@ if(isset($_POST['cuiCatMenuName'])){
             </table>
           </div><!-- Tab2 content wrapper -->
           <div id="menu2" class="container tab-pane fade"><br>
-            <p>Insert the cuisine item you want to insert in menu.</p><p>Each category can contain 5 items. Categories already chosen from cuisine categories will only be selectable from here.</p>
+            <p>Insert the cuisine item you want to insert in menu.</p><p>Each category can contain 8 items. Categories already chosen from cuisine categories will only be selectable from here.</p>
             <form method="post" id="cuiMenuForm">
               <div class="form-group row">
                 <label for="itemName" class="col-md-1 col-form-label">Category:</label>
@@ -358,16 +385,22 @@ if(isset($_POST['cuiCatMenuName'])){
                     }
                     
                ?>
-              <button type="submit" href="#" class="btn btn-success" name="cuiMenuSubmit">Submit</button>
+              <button type="submit" class="btn btn-success" name="cuiMenuSubmit">Submit</button>
             </form>
           </div><!-- Tab3 content wrapper -->
             <div id="menu3" class="container tab-pane fade"><br>
-              <p>View all the cuisines in the menu according to respective categories. Each category can contain 5 items.  <span class="text-danger">Doesn't work yet.</span></p><a href="admin_theme4.html#menu3">Delete Category</a><br><br>
+              <p>View all the cuisines in the menu according to respective categories. Each category can contain 5 items.</p><a href="/bistro2/bistro/admin/index.php?action=cuisinecats#menu3">Delete Category</a><br><br>
               <div class="row">
-                <table class="table table-striped table-responsive col-md-4">
+                <?php
+                  $cat_select = "SELECT DISTINCT catname from menucuis";
+                  $cat = mysqli_query($con,$cat_select);
+                while($catrow = mysqli_fetch_assoc($cat)){
+                  $cui_select = "SELECT * FROM menucuis WHERE catname='" . $catrow['catname'] ."'";
+                  $cui = mysqli_query($con,$cui_select);
+                  echo '<table class="table table-striped table-responsive col-md-4">
                   <thead>
                     <tr>
-                      <td colspan="3" class="bg-primary text-white">Nepali</td>
+                      <td colspan="3" class="bg-primary text-white">' . $catrow['catname'] . '</td>
                     </tr>
                     <tr>
                       <th scope="col">Cuisine Id</th>
@@ -375,92 +408,18 @@ if(isset($_POST['cuiCatMenuName'])){
                       <th scope="col"></th>
                     </tr>
                   </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">12</th>
-                      <td>Dal Bhat</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">14</th>
-                      <td>Momo</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">17</th>
-                      <td>Samay Baji</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table class="table table-striped table-responsive col-md-4">
-                  <thead>
-                    <tr>
-                      <td colspan="3" class="bg-primary text-white">Indian</td>
-                    </tr>
-                    <tr>
-                      <th scope="col">Cuisine Id</th>
-                      <th scope="col">Name</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">68</th>
-                      <td>Poha</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">65</th>
-                      <td>Sukto</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">73</th>
-                      <td>Jalevi Phapda</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">58</th>
-                      <td>Idli Dosa</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                  </tbody>
-                </table>
-                <table class="table table-striped table-responsive col-md-4">
-                  <thead>
-                    <tr>
-                      <td colspan="3" class="bg-primary text-white">Continental</td>
-                    </tr>
-                    <tr>
-                      <th scope="col">Cuisine Id</th>
-                      <th scope="col">Name</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    <tr>
-                      <th scope="row">39</th>
-                      <td>Fish Curry</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">26</th>
-                      <td>Salad</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">45</th>
-                      <td>Pizza</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                    <tr>
-                      <th scope="row">32</th>
-                      <td>Burger</td>
-                      <td><button type="button" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
-                    </tr>
-                  </tbody>
-                </table>
+                  <tbody>';
+                  while($cuirow = mysqli_fetch_assoc($cui)){
+                    echo '<tr>
+                      <th scope="row">' . $cuirow['cuiid'] . '</th>
+                      <td>' . $cuirow['cuiname'] . '</td>
+                      <td><form method="post"><input type="hidden" name="deleteId" value="' . $cuirow['cuiid'] . '"><button type="submit" name="deleteCuiMenu" class="btn btn-sm btn-danger"><i class="fas fa-trash"></i> Delete</button></form></td>
+                    </tr>';
+                  }
+                  echo '</tbody></table>';
+                }
+                
+                 ?>
               </div>
             </div><!-- Tab4 content wrapper -->
           </div><!-- Tab Content Wrapper -->
