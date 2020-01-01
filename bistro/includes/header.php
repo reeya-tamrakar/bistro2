@@ -127,7 +127,7 @@ if(isset($_POST['login'])){
         $_SESSION['email']=$row['email'];
         $_SESSION['location']=$row['location'];
         $_SESSION['phone']=$row['phone'];
-      $top_msg= "<p class='float-right pr-3'>Logged in as <a href='/bistro/profile?view=" . $_SESSION['name'] . "' class='text-danger'>" . $_SESSION['name'] . "</a>.</p>";
+      $top_msg= "<p class='float-right pr-3'>Logged in as <a href='/bistro2/bistro/profile?view=" . $_SESSION['name'] . "' class='text-danger'>" . $_SESSION['name'] . "</a>.</p>";
         $flag = 0;  
       }
     }
