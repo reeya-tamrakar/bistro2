@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Customers - Admin Panel</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="admin_theme.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Actions</div>
+      <div class="list-group list-group-flush">
+        <a href="admin_theme.html" class="list-group-item list-group-item-action bg-light selected"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="admin_theme1.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Home Page</a>
+        <a href="admin_theme3.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-utensils"></i> Cuisines</a>
+        <a href="admin_theme4.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-cog"></i> Cuisine Categories</a>
+        <a href="admin_theme5.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-friends"></i> Customers</a>
+        <a href="admin_theme6.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <a href="admin_theme7.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-money-bill"></i> Payments</a>
+        <a href="admin_theme8.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i> Users</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-toggle-off"></i> Log Out</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+        <a class="navbar-brand pl-1" href="admin_theme.html ">Admin Area</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Top Menu -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-tie"></i> Admin Name
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="admin_theme3.html"><i class="fas fa-utensils"></i> Cuisines</a>
+                <a class="dropdown-item" href="admin_theme5.html"><i class="fas fa-user-friends"></i> Customers</a>
+                <a class="dropdown-item" href="admin_theme4.html"><i class="fas fa-cog"></i> Cuisine Categories</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fas fa-toggle-off"></i> Log Out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid"><!-- Content -->
+        <h1 class="mt-4"><i class="fas fa-users"></i> Users</h1>
+        <div class="container"><!-- Container Wrapper -->
+          <br>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home"><i class="fas fa-file-import"></i> Register</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1"><i class="fas fa-user-cog"></i> Manage</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br/>
+                <p>Register new user.</p>
+                <form>
+                  <div class="form-group">
+                    <label for="catName">Username</label>
+                    <input type="text" class="form-control" id="catName">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      User name must be 10-25 characters long, not more.
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="catName">User Email Address</label>
+                    <input type="email" class="form-control" id="catName">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      User email must be valid.
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="catName">Phone</label>
+                    <input type="number" class="form-control" id="catName">
+                  </div>
+                  <div class="form-group">
+                    <label for="catName">Location</label>
+                    <input type="number" class="form-control" id="catName">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      User Location must be well-written, clear and concise to read & understand.
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">User Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <small id="descHelpBlock" class="form-text text-muted">
+                      Description is about 200 characters long.
+                    </small>
+                  </div>
+                    <a href="#" class="btn btn-success">Submit</a>
+                </form>
+            </div><!-- Tab1 content wrapper -->
+          <div id="menu1" class="container tab-pane fade"><br>
+            <p>These is the list of all the users registered from this section as well as the website.</p>
+              <table class="table table-responsive  ">
+              <thead>
+                <tr>
+                  <th scope="col">User Id</th>
+                  <th scope="col">User Name</th>
+                  <th scope="col">User Email</th>
+                  <th scope="col">User Phone</th>
+                  <th scope="col">User Location</th>
+                  <th scope="col">User Description</th>
+                  <th scope="col" colspan="2" class="text-center">Options</th>
+                </tr>
+                <tr>
+                  <td>421</td>
+                  <td>Hari Gopal Acharya</td>
+                  <td>hari_babu@gmail.com</td>
+                  <td>9875135352</td>
+                  <td>Mangal Bazaar</td>
+                  <td>I am 23years well trained in this sector. I will do my best.</td>
+                  <td><button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Edit</button></td>
+                  <td><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
+                </tr>
+                <tr>
+                  <td>367</td>
+                  <td>Radhe Shyam</td>
+                  <td>radheshyam@rocketmail.com</td>
+                  <td>9846531082</td>
+                  <td>Tutepani</td>
+                  <td>I am smart!</td>
+                  <td><button type="button" class="btn btn-primary"><i class="fas fa-pencil-alt"></i> Edit</button></td>
+                  <td><button type="button" class="btn btn-danger"><i class="fas fa-trash"></i> Delete</button></td>
+                </tr>
+              </thead>
+            </table>  
+            </div>
+          </div><!-- Tab2 content wrapper -->
+          </div><!-- Tab Content Wrapper -->
+        </div><!-- Container Wrapper -->
+      </div><!-- Content wrapper -->
+    </div>
+      <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+</body>
+</html>

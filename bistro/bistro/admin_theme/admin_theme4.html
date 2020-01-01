@@ -1,0 +1,225 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cuisine Categories - Admin Panel</title>
+  <link rel="stylesheet" type="text/css" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+  <link rel="stylesheet" type="text/css" href="admin_theme.css"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+  <div class="d-flex" id="wrapper">
+
+    <!-- Sidebar -->
+    <div class="bg-light border-right" id="sidebar-wrapper">
+      <div class="sidebar-heading">Actions</div>
+      <div class="list-group list-group-flush">
+        <a href="admin_theme.html" class="list-group-item list-group-item-action bg-light selected"><i class="fas fa-tachometer-alt"></i> Dashboard</a>
+        <a href="admin_theme1.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-home"></i> Home Page</a>
+        <a href="admin_theme3.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-utensils"></i> Cuisines</a>
+        <a href="admin_theme4.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-cog"></i> Cuisine Categories</a>
+        <a href="admin_theme5.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-user-friends"></i> Customers</a>
+        <a href="admin_theme6.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-shopping-cart"></i> Orders</a>
+        <a href="admin_theme7.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-money-bill"></i> Payments</a>
+        <a href="admin_theme8.html" class="list-group-item list-group-item-action bg-light"><i class="fas fa-users"></i> Users</a>
+        <a href="#" class="list-group-item list-group-item-action bg-light"><i class="fas fa-toggle-off"></i> Log Out</a>
+      </div>
+    </div>
+    <!-- /#sidebar-wrapper -->
+
+    <!-- Page Content -->
+    <div id="page-content-wrapper">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light border-bottom">
+        <button class="btn btn-primary" id="menu-toggle"><i class="fas fa-bars"></i></button>
+
+        <a class="navbar-brand pl-1" href="admin_theme.html ">Admin Area</a>
+
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <!-- Top Menu -->
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav ml-auto mt-2 mt-lg-0">
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <i class="fas fa-user-tie"></i> Admin Name
+              </a>
+              <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#"><i class="fas fa-user"></i> Profile</a>
+                <a class="dropdown-item" href="admin_theme3.html"><i class="fas fa-utensils"></i> Cuisines</a>
+                <a class="dropdown-item" href="admin_theme5.html"><i class="fas fa-user-friends"></i> Customers</a>
+                <a class="dropdown-item" href="admin_theme4.html"><i class="fas fa-cog"></i> Cuisine Categories</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#"><i class="fas fa-toggle-off"></i> Log Out</a>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </nav>
+
+      <div class="container-fluid"><!-- Content -->
+        <h1 class="mt-4"><i class="fas fa-cog"></i> Cuisine Categories</h1>
+        <div class="container"><!-- Container Wrapper -->
+          <br>
+          <!-- Nav tabs -->
+          <ul class="nav nav-tabs" role="tablist">
+            <li class="nav-item">
+              <a class="nav-link active" data-toggle="tab" href="#home"><i class="fas fa-file-import"></i> Insert</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu1"><i class="fas fa-eye"></i> View</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu2"><i class="fas fa-upload"></i> Insert in Menu</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="tab" href="#menu3"><i class="fas fa-glasses"></i> View in Menu</a>
+            </li>
+          </ul>
+
+          <!-- Tab panes -->
+          <div class="tab-content">
+            <div id="home" class="container tab-pane active"><br/>
+                <p>Insert cuisine categories from here.</p>
+                <form>
+                  <div class="form-group">
+                    <label for="catName">Category Name</label>
+                    <input type="email" class="form-control" id="catName">
+                    <small id="nameHelpBlock" class="form-text text-muted">
+                      Your name must be 10-25 characters long, not more.
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Category Description</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+                    <small id="descHelpBlock" class="form-text text-muted">
+                      Description is about 200 characters long.
+                    </small>
+                  </div>
+                  <div class="form-group">
+                    <label for="exampleFormControlTextarea1">Category Thumbnail Picture</label>
+                    <div class="custom-file">
+                      <input type="file" class="custom-file-input" id="customFile">
+                      <label class="custom-file-label" for="customFile">Choose file</label>
+                    </div>
+                    <small id="picHelpBlock" class="form-text text-muted">
+                      Select png, jpg.
+                    </small>
+                  </div>
+                    <a href="#" class="btn btn-primary">Submit</a>
+                </form>
+            </div><!-- Tab1 content wrapper -->
+          <div id="menu1" class="container tab-pane fade"><br>
+            <p>These are list of all the cuisine categories present in the website.</p>
+            <div class="row">
+              <div class="card col-md-3 mx-4 my-2">
+                <img src="cat1.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Nepali</h5>
+                  <p class="card-text">Popular in Nepal, nepali food is the food in the taste bud of all the nepalese.</p>
+                </div>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+              </div>
+              <div class="card col-md-3 mx-4 my-2">
+                <img src="cat2.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Continental</h5>
+                  <p class="card-text">European cuisine, or alternatively western cuisine, is a generalised term collectively referring to the cuisines of Europe and other Western countries.</p>
+                </div>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+              </div>
+              <div class="card col-md-3 mx-4 my-2">
+                <img src="cat3.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Indian</h5>
+                  <p class="card-text">Indian cuisine consists of a wide variety of regional and traditional cuisines native to the Indian subcontinent.</p>
+                </div>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+              </div>  
+              <div class="card col-md-3 mx-4 my-2">
+                <img src="cat4.jpg" class="card-img-top" alt="...">
+                <div class="card-body">
+                  <h5 class="card-title">Chinese</h5>
+                  <p class="card-text">Chinese cuisine is an important part of Chinese culture, which includes cuisine originating from the diverse regions of China, as well as from Chinese people in other parts of the world.</p>
+                </div>
+                <div class="card-footer">
+                  <button type="button" class="btn btn-sm btn-primary"><i class="fas fa-pencil-alt"></i> Edit</button>
+                  <button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                </div>
+              </div>
+            </div>
+          </div><!-- Tab2 content wrapper -->
+          <div id="menu2" class="container tab-pane fade"><br>
+            <p>Insert the cuisine category you want to insert in menu. Categories already chosen may be inserted in menu.</p><a href="admin_theme3.html#menu2">Insert Cuisine Item</a><br><br>
+            <form>
+              <div class="form-group row">
+                <label for="itemName" class="col-md-1 col-form-label">Category:</label>
+                <div class="col-md-11">
+                  <select id="itemName" class="custom-select">
+                    <option selected="selected">Nepali</option>
+                    <option>Continental</option>
+                    <option>Fast Food</option>
+                    <option>Bakery</option>
+                  </select>
+                </div>
+              </div>
+              <a href="#" class="btn btn-success">Submit</a>
+            </form>
+          </div><!-- Tab3 content wrapper -->
+            <div id="menu3" class="container tab-pane fade"><br>
+              <p>Cuisine categories list inside Menu. </p><a href="admin_theme3.html#menu3">Delete Category Items</a><br><br>
+              <div class="card-deck">
+                <div class="card" style="width: 250px; border-radius: 20px;">
+                  <div class="card-body">
+                    <strong>Nepali</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                  </div>
+                </div>
+                <div class="card" style="width: 250px; border-radius: 20px;">
+                  <div class="card-body">
+                    <strong>Indian</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                  </div>
+                </div>
+                <div class="card" style="width: 250px; border-radius: 20px;">
+                  <div class="card-body">
+                    <strong>Continental</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                  </div>
+                </div>
+                <div class="card" style="width: 250px; border-radius: 20px;">
+                  <div class="card-body">
+                    <strong>Chinese</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
+                  </div>
+                </div>
+              </div>
+            </div><!-- Tab4 content wrapper -->
+          </div><!-- Tab Content Wrapper -->
+        </div><!-- Container Wrapper -->
+      </div><!-- Content wrapper -->
+    </div>
+      <!-- /#page-content-wrapper -->
+
+  </div>
+  <!-- /#wrapper -->
+
+  <!-- Bootstrap core JavaScript -->
+  <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js"></script>
+
+  <!-- Menu Toggle Script -->
+  <script>
+    $("#menu-toggle").click(function(e) {
+      e.preventDefault();
+      $("#wrapper").toggleClass("toggled");
+    });
+  </script>
+</body>
+</html>
