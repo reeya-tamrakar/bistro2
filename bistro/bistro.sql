@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jan 01, 2020 at 08:42 AM
+-- Generation Time: Jan 01, 2020 at 09:32 AM
 -- Server version: 10.1.35-MariaDB
 -- PHP Version: 7.2.9
 
@@ -100,7 +100,13 @@ INSERT INTO `cuisines` (`id`, `name`, `category`, `cat_id`, `type_of_qty`, `desc
 (12, 'chowmein', 'Chinese', 8, 'plate', 'chinese chowmein', '5e0c4216977c44.05840490.jpeg', '5e0c4216977cd5.05408022.jpeg', '5e0c4216977ce6.34209442.jpeg', 'not applicable', 'veg,non-veg,non-egg'),
 (8, 'Momo', 'Nepalese', 6, 'plate', 'nepali', '5e0c3e97d292c0.72299625.jpeg', '5e0c3e97d29333.28850225.jpeg', '5e0c3e97d29352.70134279.jpeg', 'not applicable', 'veg,non-veg'),
 (9, 'Thakali Khana', 'Nepalese', 6, 'plate', 'dal bhat', '5e0c3f3587e6b8.87816678.jpeg', '5e0c3f3587e730.90931028.jpeg', '5e0c3f3587e756.00700436.jpeg', 'not applicable', 'veg,non-veg'),
-(13, 'Dal Dhokli', 'Indian', 9, 'bowl', 'dal dhokli', '5e0c42549bd473.19559293.jpeg', '5e0c42549bd505.23617958.jpeg', '5e0c42549bd525.56742491.jpeg', 'not applicable', 'veg,non-veg,non-egg');
+(13, 'Dal Dhokli', 'Indian', 9, 'bowl', 'dal dhokli', '5e0c42549bd473.19559293.jpeg', '5e0c42549bd505.23617958.jpeg', '5e0c42549bd525.56742491.jpeg', 'not applicable', 'veg,non-veg,non-egg'),
+(17, 'Pizza', 'Continental', 10, 'piece', 'pizza', '5e0c50fa983df5.89173303.jpeg', '5e0c50fa983e83.58738940.jpeg', '5e0c50fa983ea6.63995925.jpeg', 'not applicable', 'veg,non-veg'),
+(18, 'Naan', 'Nepalese', 6, 'piece', 'nep', '5e0c5300937624.57450504.jpeg', '5e0c53009376c1.71981659.jpeg', '5e0c53009376e7.92715298.jpeg', 'not applicable', 'n/a'),
+(19, 'Burger', 'Continental', 10, 'piece', 'bun', '5e0c5390de9d18.95088939.jpeg', '5e0c5390dea058.16187945.jpeg', '5e0c5390dea0c6.21774787.jpeg', 'not applicable', 'veg,non-veg,non-egg'),
+(20, 'Malai kofta', 'Indian', 9, 'bowl', 'indian', '5e0c55d54ae0e5.70358738.jpeg', '5e0c55d54ae1d9.40786870.jpeg', '5e0c55d54ae254.61535212.jpeg', 'not applicable', 'veg'),
+(21, 'Carbonara', 'Continental', 10, 'plate', 'carbo', '5e0c568f4d7743.92242203.jpeg', '5e0c568f4d77e9.17718490.jpeg', '5e0c568f4d77f8.52637841.jpeg', 'not applicable', 'veg,non-veg,non-egg'),
+(22, 'Spagetti', 'Continental', 10, 'plate', 'spa', '5e0c56d0901f79.24288217.jpeg', '5e0c56d0902005.96856004.jpeg', '5e0c56d0902025.12265509.jpeg', 'not applicable', 'sour,veg,non-veg,non-egg');
 
 -- --------------------------------------------------------
 
@@ -171,7 +177,13 @@ INSERT INTO `menucuis` (`catname`, `catid`, `cuiname`, `cuiid`) VALUES
 ('Indian', 9, 'Dal Dhokli', 13),
 ('Nepalese', 6, 'Thakali Khana', 9),
 ('Indian', 9, 'Idli', 15),
-('Continental', 10, 'Mediterrinean Beans', 16);
+('Continental', 10, 'Pizza', 17),
+('Chinese', 8, 'chuankchou', 14),
+('Nepalese', 6, 'Naan', 18),
+('Continental', 10, 'Burger', 19),
+('Indian', 9, 'Malai kofta', 20),
+('Continental', 10, 'Carbonara', 21),
+('Continental', 10, 'Spagetti', 22);
 
 -- --------------------------------------------------------
 
@@ -268,7 +280,7 @@ ALTER TABLE `cuisinecats`
 -- AUTO_INCREMENT for table `cuisines`
 --
 ALTER TABLE `cuisines`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23;
 
 --
 -- AUTO_INCREMENT for table `customers`

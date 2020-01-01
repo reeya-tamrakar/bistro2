@@ -1,8 +1,8 @@
 <?php 
 session_start();
 /* php price list array */
-$name_list = array('Momo','chowmein','Thakali Khana');
-$price_list = array(150,160,320);
+$name_list = array('Momo','chowmein','Thakali Khana','Dal Dhokli','Pizza','chuankchou','Idli','Naan','Burger','Malai kofta','Carbonara','Spagetti');
+$price_list = array(150,160,320,105,450,570,170,45,180,120,430,320);
 
 /* php to extract page name*/
 $directoryURI = $_SERVER['REQUEST_URI'];

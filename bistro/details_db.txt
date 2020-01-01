@@ -6,6 +6,16 @@ $username = "epiz_24181455";
 $password = "8bXl1Ess0KAW1I";
 $db = "epiz_24181455_bistro";
 
+Online Sql hosting
+
+$servername = "remotemysql.com";
+$username = "Sq2dETBJ73";
+$password = "sjcNQyKnce";
+$db = "Sq2dETBJ73";
+
+Server: 
+Port: 3306
+
 Offline
 $servername = "localhost";
 $username = "root";
