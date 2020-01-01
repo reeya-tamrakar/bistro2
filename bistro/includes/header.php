@@ -152,14 +152,14 @@ if(isset($_POST['login'])){
 
 
 <!-- Scripts -->  
-  <script src="/bistro/js/jquery.js"></script><!-- jQuery JS -->
-	<script src="/bistro/js/bootstrap.min.js"></script><!-- Bootstrap JS -->
+  <script src="/bistro2/bistro/js/jquery.js"></script><!-- jQuery JS -->
+	<script src="/bistro2/bistro/js/bootstrap.min.js"></script><!-- Bootstrap JS -->
 
 </head>
 <body>
 <header><!-- Head part of the website -->
 <nav class="navbar navbar-expand-md navbar-light"><!-- Navigation Bar -->
-  <a href="/bistro/"><img src="/bistro/images/logo/logo.png" width="150"></a><!-- Logo -->
+  <a href="/bistro2/bistro/"><img src="/bistro2/bistro/images/logo/logo.png" width="150"></a><!-- Logo -->
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav">
     <span class="navbar-toggler-icon"></span>
   </button><!-- Hamburger icon (visible in <768px devices) -->
