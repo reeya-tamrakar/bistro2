@@ -164,6 +164,30 @@ $catDescription="";
      }
   }
  }
+if(isset($_POST['menuSubmit'])){
+  $catName = $_POST['itemName'];
+  $tbl_select = "SELECT * from cuisinecats WHERE name='$catName'";
+  $tbl = mysqli_query($con,$tbl_select);
+  $tblrow = mysqli_fetch_assoc($tbl);
+  $id = $tblrow['id'];
+  $catMenuInsert = "INSERT INTO menucats(id,catname) VALUES('$id','$catName')";
+  if(mysqli_query($con,$catMenuInsert)){
+    echo "<script>alert('Inserted Successfully!');</script>";
+  }
+  else{
+    echo "<script>alert('Database Upload Error!');</script>";
+  }
+}
+if(isset($_POST['deleteMenuCat'])){
+  $deleteId = $_POST['deleteId'];
+  $delete = "DELETE from menucats WHERE id='$deleteId'";
+ if(mysqli_query($con,$delete)){
+   echo "<script>alert('Successfully deleted.')</script>";
+ }
+ else{
+   echo "error";
+ }
+}
  ?>
 <div class="container-fluid"><!-- Content -->
         <h1 class="mt-4"><i class="fas fa-cog"></i> Cuisine Categories</h1>
@@ -242,45 +266,38 @@ $catDescription="";
             </div>  
           </div><!-- Tab2 content wrapper -->
           <div id="menu2" class="container tab-pane fade"><br>
-            <p>Insert the cuisine category you want to insert in menu. Categories already chosen may be inserted in menu. <span class="text-danger">Doesn't work yet.</span></p><a href="admin_theme3.html#menu2">Insert Cuisine Item</a><br><br>
-            <form>
+            <p>Insert the cuisine category you want to insert in menu. Categories already chosen may be inserted in menu. </p><a href="admin_theme3.html#menu2">Insert Cuisine Item</a><br><br>
+            <form method="post">
               <div class="form-group row">
                 <label for="itemName" class="col-md-1 col-form-label">Category:</label>
                 <div class="col-md-11">
-                  <select id="itemName" class="custom-select">
-                    <option selected="selected">Nepali</option>
-                    <option>Continental</option>
-                    <option>Fast Food</option>
-                    <option>Bakery</option>
+                  <select name="itemName" class="custom-select">
+                    <?php 
+                    $tbl_select = "SELECT * from cuisinecats";
+                    $tbl = mysqli_query($con,$tbl_select);
+                    $tblrow = mysqli_fetch_assoc($tbl);
+                    echo '<option selected="selected" value="' . $tblrow['name'] . '">' . $tblrow['name'] . '</option>';
+                    while($tblrow = mysqli_fetch_assoc($tbl)){
+                    echo '<option value="' . $tblrow['name'] . '">' . $tblrow['name'] . ' </option>';
+                    }
+               ?>
                   </select>
                 </div>
               </div>
-              <a href="#" class="btn btn-success">Submit</a>
+              <button name="menuSubmit" href="#" class="btn btn-success">Submit</button>
             </form>
           </div><!-- Tab3 content wrapper -->
             <div id="menu3" class="container tab-pane fade"><br>
-              <p>Cuisine categories list inside Menu. <span class="text-danger">Doesn't work yet.</span></p><a href="admin_theme3.html#menu3">Delete Category Items</a><br><br>
+              <p>Cuisine categories list inside Menu. </p><a href="admin_theme3.html#menu3">Delete Category Items</a><br><br>
               <div class="card-deck">
-                <div class="card" style="width: 250px; border-radius: 20px;">
-                  <div class="card-body">
-                    <strong>Nepali</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
-                  </div>
-                </div>
-                <div class="card" style="width: 250px; border-radius: 20px;">
-                  <div class="card-body">
-                    <strong>Indian</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
-                  </div>
-                </div>
-                <div class="card" style="width: 250px; border-radius: 20px;">
-                  <div class="card-body">
-                    <strong>Continental</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
-                  </div>
-                </div>
-                <div class="card" style="width: 250px; border-radius: 20px;">
-                  <div class="card-body">
-                    <strong>Chinese</strong><button type="button" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button>
-                  </div>
-                </div>
+                <?php 
+                    $tbl_select = "SELECT * from menucats";
+                    $tbl = mysqli_query($con,$tbl_select);
+                    while($tblrow = mysqli_fetch_assoc($tbl)){
+                    echo '<form method="post"><div class="card" style="width: 225px; border-radius: 20px;"><div class="card-body">
+                    <strong>' . $tblrow['catname'] . '</strong> <input type="hidden" name="deleteId" value="' . $tblrow['id'] . '"><button type="submit" name="deleteMenuCat" class="btn btn-sm btn-danger float-right"><i class="fas fa-trash"></i> Delete</button></div></div></form>';
+                    }
+                ?>
               </div>
             </div><!-- Tab4 content wrapper -->
           </div><!-- Tab Content Wrapper -->

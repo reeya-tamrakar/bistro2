@@ -110,7 +110,20 @@ if(isset($_POST['cuiEdit'])){
   $editId = $_POST['id'];
   echo '';
 }
+if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['cuiMenuName'])){
+  $selectValue = $_POST['cuiMenuName'];
+  echo "You selected $selectValue, go and select an item now.";
+}
+if(isset($_POST['cuiMenuSubmit'])){
+
+}
+
  ?>
+ <script type="text/javascript"> 
+  function getCuisines(){
+    document.getElementById("cuiMenuForm").submit();
+  }
+ </script>
 <div class="container-fluid"><!-- Content -->
         <h1 class="mt-4"><i class="fas fa-utensils"></i> Cuisines</h1>
         <div class="container"><!-- Container Wrapper -->
@@ -302,31 +315,50 @@ if(isset($_POST['cuiEdit'])){
             </table>
           </div><!-- Tab2 content wrapper -->
           <div id="menu2" class="container tab-pane fade"><br>
-            <p>Insert the cuisine item you want to insert in menu.</p><p>Each category can contain 5 items. Categories already chosen from cuisine categories will only be selectable from here. <span class="text-danger">Doesn't work yet.</span></p>
-            <form>
+            <p>Insert the cuisine item you want to insert in menu.</p><p>Each category can contain 5 items. Categories already chosen from cuisine categories will only be selectable from here.</p>
+            <form method="post" id="cuiMenuForm">
               <div class="form-group row">
                 <label for="itemName" class="col-md-1 col-form-label">Category:</label>
                 <div class="col-md-11">
-                  <select id="itemName" class="custom-select">
-                    <option selected="selected">Nepali</option>
-                    <option>Continental</option>
-                    <option>Fast Food</option>
-                    <option>Bakery</option>
+                  <select name="cuiMenuName" class="custom-select" onchange="getCuisines()">
+                    <option selected="selected" disabled="disabled">Select</option>
+                    <?php 
+                    $tbl_select = "SELECT * from menucats";
+                    $tbl = mysqli_query($con,$tbl_select);
+                    while($tblrow = mysqli_fetch_assoc($tbl)){
+                    echo '<option value="' . $tblrow['catname'] . '"'; 
+                    if(!empty($_POST['cuiMenuName']) && $_SERVER['REQUEST_METHOD'] == 'POST'){
+                      if($_POST['cuiMenuName'] == $tblrow['catname']){
+                        echo "selected='selected'";
+                      }
+                    } 
+                      echo '>' . $tblrow['catname'] . ' </option>';
+                    }
+               ?>
                   </select>
                 </div>
               </div>
-              <div class="form-group row">
+                    <?php 
+                    if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['cuiMenuName'])){
+                      $selectValue = $_POST['cuiMenuName'];
+                      echo '<div class="form-group row">
                 <label for="itemName" class="col-md-1 col-form-label">Item:</label>
                 <div class="col-md-11">
-                  <select id="itemName" class="custom-select">
-                    <option selected="selected">Momo</option>
-                    <option>Samay Baji</option>
-                    <option>Yomari</option>
-                    <option>Dal Bhat</option>
+                  <select name="cuiCatMenuName" class="custom-select">';
+                      $tbl_select = "SELECT * from cuisines WHERE category='$selectValue'";
+                      $tbl = mysqli_query($con,$tbl_select);
+                      while($tblrow = mysqli_fetch_assoc($tbl)){
+                      echo '<option value="' . $tblrow['name'] . '"';
+                      echo '>' . $tblrow['name'] . ' </option>';
+                      }
+                      echo '
                   </select>
                 </div>
-              </div>
-              <a href="#" class="btn btn-success">Submit</a>
+              </div>';
+                    }
+                    
+               ?>
+              <button type="submit" href="#" class="btn btn-success" name="cuiMenuSubmit">Submit</button>
             </form>
           </div><!-- Tab3 content wrapper -->
             <div id="menu3" class="container tab-pane fade"><br>

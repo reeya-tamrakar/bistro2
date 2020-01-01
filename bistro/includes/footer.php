@@ -7,12 +7,12 @@
 		</div>
 		<div class="col-sm-6 col-md-3 p-3">
 			<h5>Site Options</h5>
-			<a href="/bistro/admin/index?action=dashboard">Head to admin panel</a><br/>
-			<a href="/bistro/docs/index">Head to documentation</a><br/><br/>
+			<a href="/bistro2/bistro/admin/index?action=dashboard">Head to admin panel</a><br/>
+			<a href="/bistro2/bistro/docs/index">Head to documentation</a><br/><br/>
 			<h5>Navigation</h5>
-			<a href="/bistro/">Home</a><br/>
-			<a href="/bistro/services">Services</a><br/>
-			<a href="/bistro/about">About</a><br/>
+			<a href="/bistro2/bistro/">Home</a><br/>
+			<a href="/bistro2/bistro/services">Services</a><br/>
+			<a href="/bistro2/bistro/about">About</a><br/>
 		</div>
 		<div class="col-sm-6 col-md-3 p-3">
 			<h5>Find us</h5>
