@@ -1,15 +1,15 @@
 /* raleway font combo */
 @font-face{/* font import - raleway */
 	font-family: 'raleway';
-	src: url('/bistro/fonts/raleway.ttf');
+	src: url('/bistro2/bistro/fonts/raleway.ttf');
 }
 @font-face{/* font import - raleway light*/
 	font-family: 'raleway light';
-	src: url('/bistro/fonts/raleway-light.ttf');
+	src: url('/bistro2/bistro/fonts/raleway-light.ttf');
 }
 @font-face{/* font import - raleway-bold */
 	font-family: 'raleway bold';
-	src: url('/bistro/fonts/raleway-bold.ttf');
+	src: url('/bistro2/bistro/fonts/raleway-bold.ttf');
 }
 *{
 	font-family: 'raleway',cursive;!important
