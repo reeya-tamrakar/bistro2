@@ -158,6 +158,12 @@ if(isset($_POST['login'])){
 <!-- Scripts -->  
   <script src="/bistro2/bistro/js/jquery.js"></script><!-- jQuery JS -->
 	<script src="/bistro2/bistro/js/bootstrap.min.js"></script><!-- Bootstrap JS -->
+  <script type="text/javascript">
+    function order(){
+      alert('Ordered Successfully');
+      return false;
+    }
+  </script>
 
 </head>
 <body>
@@ -186,10 +192,10 @@ if(isset($_POST['login'])){
                           $cui_select = "SELECT * FROM menucuis WHERE catname='" . $catrow['catname'] ."'";
                           $cui = mysqli_query($con,$cui_select);
                           while($cuirow = mysqli_fetch_assoc($cui)){
-                            echo '<li><a href="#">' . $cuirow['cuiname'];
+                            echo '<li><a href="#" onclick="return order()">' . $cuirow['cuiname'];
                             if(in_array($cuirow['cuiname'], $name_list)){
                               $index = array_search($cuirow['cuiname'], $name_list);
-                              echo '<button type="submit" class="btn btn-primary btn-sm ml-2 float-right" onclick="alert('. "Ordered Successfully." . ')">Order!</button> <strong class="float-right">Rs. ' . $price_list[$index] . '</strong> </a>';
+                              echo '<button type="submit" class="btn btn-primary btn-sm ml-2 float-right">Order!</button> <strong class="float-right">Rs. ' . $price_list[$index] . '</strong> </a>';
                             }
                             echo '</li>'; 
                           }
