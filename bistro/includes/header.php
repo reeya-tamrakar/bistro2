@@ -86,7 +86,7 @@ if (isset($_POST['s_submit'])) {
       $_SESSION['email']=$s_email;
       $_SESSION['location']=$s_location;
       $_SESSION['phone']=$s_phone; 
-      $top_msg= "<p class='float-right pr-3'>Logged in as <a href='/bistro/profile?view=" . $_SESSION['name'] . "' class='text-danger'>" . $_SESSION['name'] . "</a>.</p>";
+      $top_msg= "<p class='float-right pr-3'>Logged in as <a href='/bistro2/bistro/profile?view=" . $_SESSION['name'] . "' class='text-danger'>" . $_SESSION['name'] . "</a>.</p>";
     }
     else{
       echo "error";
