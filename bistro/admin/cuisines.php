@@ -114,7 +114,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST' && !empty($_POST['cuiMenuName'])){
   $selectValue = $_POST['cuiMenuName'];
   echo "You selected $selectValue, go and select an item now.";
 }
-if(isset($_POST['cuiMenuSubmit'])){
+if(isset($_POST['cuiCatMenuName'])){
 
 }
 
