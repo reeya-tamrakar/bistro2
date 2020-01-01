@@ -12,8 +12,8 @@ include('../includes/db.php');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
 <!-- Links -->
-	<link rel="stylesheet" type="text/css" href="/bistro/css/bootstrap.min.css"><!-- Bootstrap CSS -->
-    <link rel="shortcut icon" type="image/png" href="/bistro/images/logo/favicon.png"/><!-- Link for favicon -->
+	<link rel="stylesheet" type="text/css" href="/bistro2/bistro/css/bootstrap.min.css"><!-- Bootstrap CSS -->
+    <link rel="shortcut icon" type="image/png" href="/bistro2/bistro/images/logo/favicon.png"/><!-- Link for favicon -->
 	<link rel="stylesheet" type="text/css" href="style.css"><!-- Main CSS -->
 
 <!-- Style -->
@@ -23,7 +23,7 @@ include('../includes/db.php');
 			padding: 0;
 		}
 		.container-fluid{/* the main background */
-			background: url('/bistro/images/admin_bg.jpg');
+			background: url('/bistro2/bistro/images/admin_bg.jpg');
 			width: 100%;
 			height: 100vh;
 			background-size: cover;
@@ -56,7 +56,7 @@ include('../includes/db.php');
 			<input type="password" name="pass" placeholder="Password" required="required">
 			<input type="submit" name="log" value="Login" class="btn btn-primary">
 		</form>
-		<a href="/bistro/">Back to the website</a>	
+		<a href="/bistro2/bistro/">Back to the website</a>	
 	</div>
 </div>
 </body>

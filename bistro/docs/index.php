@@ -9,8 +9,8 @@
 <body>
 <div id="app">
 	<h1>Welcome to Bistro Documentation!</h1>
-	<a href="/bistro/docs/html/Bistro.html">Proceed to the documentation</a><br/><br/><br/><br/>
-	<a href="/bistro/">Back to the website</a><br/>		
+	<a href="/bistro2/bistro/docs/html/Bistro.html">Proceed to the documentation</a><br/><br/><br/><br/>
+	<a href="/bistro2/bistro/">Back to the website</a><br/>		
 </div><!-- Docsify.js-->
 <script>
     window.$docsify = {
@@ -18,6 +18,6 @@
     }
 </script>
 <!-- Documentation js-->
-<script src="/bistro/js/docsify.min.js"></script>
+<script src="/bistro2/bistro/js/docsify.min.js"></script>
 </body>
 </html>
